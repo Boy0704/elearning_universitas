@@ -4,7 +4,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>AP</b>P</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>APP</b> REMINDER</span>
+      <span class="logo-lg"><b>E-</b> Learning</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -20,7 +20,11 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="image/user/<?php echo $this->session->userdata('foto') ?>" class="user-image" alt="User Image">
+              <?php if ($this->session->userdata('foto') == '') { ?>
+              <img src="<?php echo link_siakad().'/user.png'; ?>" class="user-image" alt="User Image">
+            <?php } else { ?>
+              <img src="<?php echo link_siakad().'/'.$this->session->userdata('foto') ?>" class="user-image" alt="User Image">
+            <?php } ?>
               <span class="hidden-xs"><?php echo $this->session->userdata('nama') ?></span>
             </a>
             <ul class="dropdown-menu">

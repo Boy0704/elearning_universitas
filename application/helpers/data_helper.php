@@ -1,73 +1,15 @@
 <?php 
 
-function pesan_wa_balik($namapsr, $namacs, $no_inv, $amount, $invduedate,$emailcs)
+function tahun_akademik_aktif()
 {
-    return '
-    Dear Bapak/Ibu. '.$namapsr.',<br/>
-    Customer '.$namacs.' dengan Invoice No.'.$no_inv.' senilai '.$amount.' yang jatuh tempo tanggal '.$invduedate.' Telah berhasil dikirimkan Email ke '.$emailcs.' dan WhatsApp AR Reminder.<br />
-    Mohon segera ditindak lanjuti.<br />
-    Terimakasih. <br />
-    Regards, PT Hexindo Adiperkasa Tbk
-    ';
+    $CI =& get_instance();
+    $data = $CI->db->query("SELECT tahun_akademik_id FROM akademik_tahun_akademik where status='y' ")->row_array();
+    return $data['tahun_akademik_id'];
 }
 
-function notif_email1($namapsr, $namacs, $no_inv, $amount, $invduedate,$emailcs)
+function link_siakad()
 {
-    return "
-    <p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";text-align:justify;'>Dear Bapak/Ibu. ".$namapsr.",</p>
-
-<p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";text-align:justify;'>&nbsp; &nbsp;Saat ini telah berhasil dikirimkan Email dan WhatsApp Reminder kepada:</p>
-
-<p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";text-align:justify;'>&nbsp; &nbsp;Customer &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ".$namacs."</p>
-
-<p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";text-align:justify;'>&nbsp; &nbsp;Email &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ".$emailcs."</p>
-
-<p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";text-align:justify;'>&nbsp; &nbsp;Nomor Invoice &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ".$no_inv."</p>
-
-<p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";text-align:justify;'>&nbsp; &nbsp;Total Invoice&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;: ".$amount."</p>
-
-<p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";text-align:justify;'>&nbsp; &nbsp;Tanggal Due Date&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;: ".$invduedate."</p>
-
-<p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";text-align:justify;'>&nbsp; &nbsp;Mohon untuk segera ditindak lanjuti. Apabila sudah dilakukan pembayaran segera rubah status menjadi PAID pada aplikasi AR Reminder.</p>
-
-<p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";text-align:justify;'>&nbsp; &nbsp;</p>
-
-<p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";text-align:justify;'>&nbsp; &nbsp;Terimakasih,</p>
-
-<p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";text-align:justify;'>&nbsp; &nbsp;PT Hexindo Adiperkasa Tbk</p>
-
-
-    ";
-}
-
-function notif_email2($namapsr, $namacs, $no_inv, $amount, $invduedate,$emailcs)
-{
-    return "
-    <p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";'>Dear Bapak/Ibu. ".$namapsr.",</p>
-
-    <p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";'>&nbsp; &nbsp;Hari ini adalah tanggal jatuh tempo pembayaran untuk informasi AR Reminder berikut ini:</p>
-
-    <p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";'>&nbsp; &nbsp;Customer &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: ".$namacs."</p>
-
-    <p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";'>&nbsp; &nbsp;Email &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: ".$emailcs."</p>
-
-    <p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";'>&nbsp; &nbsp;Nomor Invoice &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: ".$no_inv."</p>
-
-    <p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";'>&nbsp; &nbsp;Total Invoice&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : ".$amount."</p>
-
-    <p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";'>&nbsp; &nbsp;Tanggal Due Date&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: ".$invduedate."</p>
-
-    <p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";'>&nbsp;</p>
-
-    <p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";text-align:justify;'>&nbsp; &nbsp;Mohon untuk segera ditindak lanjuti. Apabila sudah dilakukan pembayaran segera rubah status menjadi PAID pada aplikasi AR Reminder atau aplikasi akan &nbsp; &nbsp;merubah automatis statusnya menjadi Expired.</p>
-
-    <p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";'>&nbsp; &nbsp;</p>
-
-    <p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";'>&nbsp; &nbsp;Terimakasih,</p>
-
-    <p style='margin:0cm;margin-bottom:.0001pt;font-size:15px;font-family:\"Calibri\",\"sans-serif\";'>&nbsp; &nbsp;PT Hexindo Adiperkasa Tbk</p>
-
-    ";
+    return 'http://localhost/siakad/images/';
 }
 
 function log_r($string = null, $var_dump = false)

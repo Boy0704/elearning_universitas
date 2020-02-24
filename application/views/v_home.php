@@ -5,7 +5,7 @@
 		<div class="alert alert-success">
 			
 		<marquee>
-				<h2>Selamat Datang Di Aplikasi reminder customer</h2>
+				<h2>Selamat Datang Di Aplikasi E-Learning</h2>
 		</marquee>
 		</div>
 
@@ -16,17 +16,64 @@
 </div>
 
 <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-12">
 		<div class="panel panel-info">
-	      <div class="panel-heading"><i class="fa fa-info"></i> INFORMASI</div>
+	      <div class="panel-heading"><i class="fa fa-info"></i> LIST MATAKULIAH SEMESTER INI</div>
 	      <div class="panel-body">
-	      	<div class="callout callout-info">
+
+	      	<div class="callout">
 	      		<?php 
-	      		$sql = $this->db->get_where('info', array('publish'=>'1'));
+	      		if ($this->session->userdata('level') == '3') {
+	      			$dosen = $this->session->userdata('keterangan');
+	      			$thn = tahun_akademik_aktif();
+	      			$query="SELECT mm.kode_makul,mm.nama_makul,jk.jadwal_id
+                    FROM akademik_jadwal_kuliah as jk,makul_matakuliah as mm
+                    WHERE mm.makul_id=jk.makul_id and jk.dosen_id=$dosen and jk.tahun_akademik_id=$thn";
+	      			$sql = $this->db->query($query);
+	      		} elseif ($this->session->userdata('level') == '4') {
+
+	      			$sql = $this->db->get_where('v_krs', array('tahun_akademik_id'=>tahun_akademik_aktif(),'nim'=>$this->session->userdata('username')));
+	      		}
 	      		if ($sql->num_rows() > 0) {
-	      			echo $sql->row()->info;
+	      			?>	
+	      			<table class="table table-bordered">
+	      				<thead style="background-color: green">
+	      					<tr>
+	      						<td>Kode MK</td>
+	      						<td>Matakuliah</td>
+	      						<td>Pilihan</td>
+	      					</tr>
+	      				</thead>
+	      				<tbody>
+	      					<?php 
+	      					foreach ($sql->result() as $rw) {
+	      						$dosen_id = get_data('akademik_jadwal_kuliah','jadwal_id',$rw->jadwal_id,'dosen_id');
+	      						$nidn = get_data('app_dosen','dosen_id',$dosen_id,'nidn');
+	      					 ?>
+	      					<tr>
+	      						<td><?php echo $rw->kode_makul ?></td>
+	      						<td><?php echo $rw->nama_makul ?></td>
+	      						<td>
+	      							<?php 
+	      							if ($this->session->userdata('level') == '3') {
+	      								?>
+	      								<a href="materi/index/<?php echo $nidn.'/'.$rw->kode_makul ?>" class="label label-info"> Lihat Materi</a>
+	      								<?php
+	      							} else {
+	      							 ?>
+	      							 <a href="materi/index/<?php echo $nidn.'/'.$rw->kode_makul ?>" class="label label-info"> Lihat Materi</a>
+	      							 <?php
+	      							}
+	      							?>
+	      							
+	      						</td>
+	      					</tr>
+	      					<?php } ?>
+	      				</tbody>
+	      			</table>
+	      			<?php
 	      		} else {
-	      			echo "Tidak Ada informasi yang ditampilkan";
+	      			echo "Tidak Ada Matakuliah yang ditampilkan";
 	      		}
 
 	      		 ?>
@@ -36,55 +83,5 @@
 	    <!-- <div class="callout callout-info">
 	    	
 	    </div> -->
-	</div>
-	<div class="col-md-6">
-		<div class="panel panel-warning">
-	      <div class="panel-heading"><i class="fa fa-info"></i> Customer Jatuh Tempo Bulan ini.</div>
-	      <div class="panel-body">
-	      	<table class="table table-bordered">
-	      		<tr>
-	      			<th>No.</th>
-	      			<th>Customer</th>
-	      			<th>Amount</th>
-	      			<th>Inv Due Date</th>
-	      		</tr>
-	      	
-	      	<?php
-	      	$no = 1; 
-	      	$date_current = date('Y-m');
-	      	if ($this->session->userdata('level') == 'psr') {
-	      		$this->db->where('user', $this->session->userdata('id_user'));
-	      	}
-	      	if ($this->session->userdata('level') == 'supervisor') {
-	      		$this->db->where('id_cabang', $this->session->userdata('id_cabang'));
-	      	}
-	      	$this->db->like('invoice_due_date', $date_current, 'after');
-	      	$sql = $this->db->get('reminder');
-	      	//$sql = $this->db->query("
-	      		// SELECT * FROM reminder WHERE invoice_due_date LIKE '$date_current%';
-	      		// ");
-	      	if ($sql->num_rows() > 0) {
-	      		foreach ($sql->result() as $rw) {
-	      		?>
-	      		<tr>
-	      			<td><?php echo $no; ?></td>
-	      			<td><?php echo get_data('customer', 'customer_code', $rw->customer_code, 'nama'); ?></td>
-	      			<td><?php echo number_format($rw->amount_total) ?></td>
-	      			<td><?php echo $rw->invoice_due_date ?></td>
-	      		</tr>
-
-	      		<?php 
-	      		$no++; }
-	      	} else {
-	      		?>
-	      	 	<tr>
-	      	 		<td class="4"> Data Tidak Ditemukan.</td>
-	      	 	</tr>
-	      	 	<?php
-	      	}
-	      	?>
-	      	</table>
-	      </div>
-	    </div>
 	</div>
 </div>

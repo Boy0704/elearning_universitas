@@ -4,7 +4,11 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="image/user/<?php echo $this->session->userdata('foto') ?>" class="img-circle" alt="User Image">
+        <?php if ($this->session->userdata('foto') == '') { ?>
+          <img src="<?php echo link_siakad().'/user.png'; ?>" class="img-circle" alt="User Image">
+        <?php } else { ?>
+          <img src="<?php echo link_siakad().'/'.$this->session->userdata('foto') ?>" class="img-circle" alt="User Image">
+        <?php } ?>
         </div>
         <div class="pull-left info">
           <p><?php echo $this->session->userdata('nama'); ?></p>
@@ -27,32 +31,20 @@
         <li class="header">MAIN NAVIGATION</li>
 
         <?php 
-        if ($this->session->userdata('level') == 'admin') {
+        if ($this->session->userdata('level') == '1') {
          ?>
         
         <li><a href="app"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
         
-        
-        <li><a href="Customer"><i class="fa fa-circle-o"></i> <span>Data Customer</span></a></li>
-        <li><a href="cabang"><i class="fa fa-circle-o"></i> <span>Data Cabang</span></a></li>
-        <li><a href="reminder"><i class="fa fa-send"></i> <span>Reminder</span></a></li>
-        <li><a href="user"><i class="fa fa-users"></i> <span>Manajemen User</span></a></li>
-        <li><a href="info"><i class="fa fa-info"></i> <span>Create Informasi</span></a></li>
-        <li><a href="app/export_db"><i class="fa fa-cloud-download"></i> <span>Export Database</span></a></li>
-        <li><a data-toggle="modal" data-target="#modal-default"><i class="fa fa-cloud-upload"></i> <span>Restore Database</span></a></li>
-      <?php } elseif ($this->session->userdata('level') == 'psr') { ?>
-         <li><a href="app"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-        
-        <li><a href="Customer"><i class="fa fa-circle-o"></i> <span>Data Customer</span></a></li>
-        <li><a href="reminder/custom"><i class="fa fa-send"></i> <span>Reminder</span></a></li>
+        <li><a href="materi"><i class="fa fa-circle-o"></i> <span>Data Materi</span></a></li>
+        <li><a href="tugas"><i class="fa fa-circle-o"></i> <span>Data Tugas</span></a></li>
+        <li><a href="Download"><i class="fa fa-cloud-download"></i> <span>Download</span></a></li>
+      <?php } elseif ($this->session->userdata('level') == '3') { ?>
+         
+
       
-      <?php } elseif ($this->session->userdata('level') == 'supervisor') { ?>
-         <li><a href="app"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-        
-        <li><a href="Customer"><i class="fa fa-circle-o"></i> <span>Data Customer</span></a></li>
-        <li><a href="reminder/custom"><i class="fa fa-send"></i> <span>Reminder</span></a></li>
-        <li><a href="user"><i class="fa fa-users"></i> <span>Data PSR</span></a></li>
-      
+      <?php } elseif ($this->session->userdata('level') == '4') { ?>
+               
       
 
       <?php } ?>

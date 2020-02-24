@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Aplikasi Reminder</title>
+  <title>E-Learning</title>
   <base href="<?php echo base_url() ?>">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -99,7 +99,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2019 <a href="#">APP REMINDER</a>.</strong> All rights
+    <strong>Copyright &copy; 2020 <a href="#">E-LEARNING</a>.</strong> All rights
     reserved.
   </footer>
 
@@ -151,9 +151,27 @@
 <!-- AdminLTE for demo purposes -->
 <script src="assets/dist/js/demo.js"></script>
 <script src="assets/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+ <script src="https://cdn.tiny.cloud/1/4mo39ri6dgnfnyfqwhr6nhicdjgg3nckwd3ruoyr8sa3d5z7/tinymce/5/tinymce.min.js"></script>
         <script src="assets/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript"><?php echo $this->session->userdata('message') ?></script>
+<script src="https://cdn.tiny.cloud/1/4mo39ri6dgnfnyfqwhr6nhicdjgg3nckwd3ruoyr8sa3d5z7/tinymce/5/tinymce.min.js"></script>
+ <script type="text/javascript">
+    tinymce.init({
+        selector: ".textarea_editor",
+        plugins: [
+             "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+             "searchreplace wordcount visualblocks visualchars code fullscreen",
+             "insertdatetime nonbreaking save table contextmenu directionality",
+             "emoticons template paste textcolor colorpicker textpattern",
+             "media"
+        ],
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+        images_upload_url: '<?php echo base_url() ?>app/tinymce_upload',
+        images_upload_base_path: '<?php echo base_url() ?>',
+        images_upload_credentials: true
+   });
+</script>
 <script>
   $(function () {
     //Initialize Select2 Elements

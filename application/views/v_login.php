@@ -1,178 +1,87 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<base href="<?php echo base_url() ?>">
-	<title>Login Administrator</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <style type="text/css">
-    	/*
- * Specific styles of signin component
- */
-/*
- * General styles
- */
-body, html {
-    height: 100%;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
-}
+<title>Login E-LEARNING</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="https://colorlib.com/etc/lf/Login_v16/">
 
-.card-container.card {
-    max-width: 350px;
-    padding: 40px 40px;
-}
+<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
 
-.btn {
-    font-weight: 700;
-    height: 36px;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: default;
-}
+<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 
-/*
- * Card component
- */
-.card {
-    background-color: #F7F7F7;
-    /* just in case there no content*/
-    padding: 20px 25px 30px;
-    margin: 0 auto 25px;
-    margin-top: 50px;
-    /* shadows and rounded borders */
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-}
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 
-.profile-img-card {
-    width: 96px;
-    height: 96px;
-    margin: 0 auto 10px;
-    display: block;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-}
+<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 
-/*
- * Form styles
- */
-.profile-name-card {
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    margin: 10px 0 0;
-    min-height: 1em;
-}
+<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
 
-.reauth-email {
-    display: block;
-    color: #404040;
-    line-height: 2;
-    margin-bottom: 10px;
-    font-size: 14px;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
+<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
 
-.form-signin #inputEmail,
-.form-signin #inputPassword {
-    direction: ltr;
-    height: 44px;
-    font-size: 16px;
-}
+<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
 
-.form-signin input[type=email],
-.form-signin input[type=password],
-.form-signin input[type=text],
-.form-signin button {
-    width: 100%;
-    display: block;
-    margin-bottom: 10px;
-    z-index: 1;
-    position: relative;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
+<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 
-.form-signin .form-control:focus {
-    border-color: rgb(104, 145, 162);
-    outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
-}
+<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 
-.btn.btn-signin {
-    /*background-color: #4d90fe; */
-    background-color: rgb(104, 145, 162);
-    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
-    padding: 0px;
-    font-weight: 700;
-    font-size: 14px;
-    height: 36px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    border: none;
-    -o-transition: all 0.218s;
-    -moz-transition: all 0.218s;
-    -webkit-transition: all 0.218s;
-    transition: all 0.218s;
-}
+<link rel="stylesheet" type="text/css" href="css/util.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 
-.btn.btn-signin:hover,
-.btn.btn-signin:active,
-.btn.btn-signin:focus {
-    background-color: rgb(12, 97, 33);
-}
-
-.forgot-password {
-    color: rgb(104, 145, 162);
-}
-
-.forgot-password:hover,
-.forgot-password:active,
-.forgot-password:focus{
-    color: rgb(12, 97, 33);
-}
-    </style>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-	 <div class="container">
-        <div class="card card-container">
-            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-            <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin" action="" method="POST">
-                <span id="reauth-email" class="reauth-email"></span>
-                <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
-                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <div id="remember" class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
-                </div>
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Login</button>
-            </form><!-- /form -->
-            <!-- <a href="#" class="forgot-password">
-                Forgot the password?
-            </a> -->
-        </div><!-- /card-container -->
-    </div><!-- /container -->
-</body>
+<div class="limiter">
+<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+<div class="wrap-login100 p-t-30 p-b-50">
+<span class="login100-form-title p-b-41">
+E- Learning
+</span>
+<form class="login100-form validate-form p-b-33 p-t-5" method="post">
+<div class="wrap-input100 validate-input" data-validate="Enter NIM/NIDN">
+<input class="input100" type="text" name="username" placeholder="NIM / NIDN" autocomplete="off">
+<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+</div>
+<div class="wrap-input100 validate-input" data-validate="Enter password">
+<input class="input100" type="password" name="password" placeholder="Password">
+<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+</div>
+<div class="container-login100-form-btn m-t-32">
+<button class="login100-form-btn" type="submit">
+Login
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<div id="dropDownSelect1"></div>
+
+<script src="vendor/jquery/jquery-3.2.1.min.js" type="23b23e0dad9d642bc99bc0b9-text/javascript"></script>
+
+<script src="vendor/animsition/js/animsition.min.js" type="23b23e0dad9d642bc99bc0b9-text/javascript"></script>
+
+<script src="vendor/bootstrap/js/popper.js" type="23b23e0dad9d642bc99bc0b9-text/javascript"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js" type="23b23e0dad9d642bc99bc0b9-text/javascript"></script>
+
+<script src="vendor/select2/select2.min.js" type="23b23e0dad9d642bc99bc0b9-text/javascript"></script>
+
+<script src="vendor/daterangepicker/moment.min.js" type="23b23e0dad9d642bc99bc0b9-text/javascript"></script>
+<script src="vendor/daterangepicker/daterangepicker.js" type="23b23e0dad9d642bc99bc0b9-text/javascript"></script>
+
+<script src="vendor/countdowntime/countdowntime.js" type="23b23e0dad9d642bc99bc0b9-text/javascript"></script>
+
+<script src="js/main.js" type="23b23e0dad9d642bc99bc0b9-text/javascript"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="23b23e0dad9d642bc99bc0b9-text/javascript"></script>
+<script type="23b23e0dad9d642bc99bc0b9-text/javascript">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23581568-13');
+    </script>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="23b23e0dad9d642bc99bc0b9-|49" defer=""></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript"><?php echo $this->session->userdata('message') ?></script>
+</body>
 </html>

@@ -82,8 +82,18 @@ class app extends CI_Controller {
 		$this->load->view('v_index', $data);
     }
 
+    public function list_mk()
+    {
+    	$data = array(
+			'konten' => 'materi/list_materi',
+            'judul_page' => 'List Matakuliah',
+		);
+		$this->load->view('v_index', $data);
+    }
+
     public function Login()
     {
+    	error_reporting(0);
 
     	if ($_POST) {
     		$username = $this->input->post('username');

@@ -12,7 +12,7 @@
             </div>
             <div class="form-group">
                 <label for="varchar">Nama MK</label>
-                <input type="text" class="form-control" name="kode_mk" id="kode_mk" placeholder="Nama Mk" value="<?php echo get_data('makul_matakuliah','kode_makul',$kode_mk,'nama_makul'); ?>" readonly/>
+                <input type="text" class="form-control" name="nama_mk" id="kode_mk" placeholder="Nama Mk" value="<?php echo get_data('makul_matakuliah','kode_makul',$kode_mk,'nama_makul'); ?>" readonly/>
             </div>
             <div class="form-group">
                 <label for="varchar">Nidn Dosen <?php echo form_error('nidn_dosen') ?></label>
@@ -29,6 +29,6 @@
 	    
 	    <input type="hidden" name="id_materi" value="<?php echo $id_materi; ?>" /> 
 	    <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
-	    <a href="<?php echo site_url('materi/'.$nidn_dosen.'/'.$kode_mk) ?>" class="btn btn-default">Cancel</a>
+	    <a href="<?php echo site_url('materi/index/'.$nidn_dosen.'/'.$kode_mk) ?>" class="btn btn-default">Cancel</a>
 	</form>
    

@@ -10,7 +10,7 @@ $data = $this->db->get_where('elearning_materi', array('id_materi'=>$this->uri->
 	      </div>
 	    </div>
 	    <?php 
-	    if ($this->session->userdata('level')= '4') {
+	    if ($this->session->userdata('level')== '4') {
 	     ?>
 	    <div class="callout callout-info">
 	    	<a href="tugas/create/<?php echo $this->session->userdata('username').'/'.$data->kode_mk; ?>" class="btn btn-primary"> BUAT TUGAS</a>

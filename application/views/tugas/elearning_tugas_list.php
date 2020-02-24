@@ -14,8 +14,8 @@
                 
             </div>
         </div>
-        <table class="table table-bordered" style="margin-bottom: 10px">
-            <thead></thead>
+        <table class="table table-bordered" style="margin-bottom: 10px" id="example1">
+            <thead>
             <tr>
                 <th>No</th>
 		<th>Nim</th>
@@ -23,7 +23,9 @@
 		<th>Link Upload</th>
 		<th>Kode Mk</th>
 		<th>Action</th>
-            </tr><?php
+            </tr>
+            </thead>
+            <tbody><?php
             $tugas_data = $this->db->get('elearning_tugas', array('nim'=>$this->session->userdata('username')));
             foreach ($tugas_data->result() as $tugas)
             {
@@ -46,6 +48,7 @@
                 <?php
             }
             ?>
+            </tbody>
         </table>
         <div class="row">
             <div class="col-md-6">

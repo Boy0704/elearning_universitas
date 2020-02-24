@@ -1,7 +1,7 @@
 
         <div class="row" style="margin-bottom: 10px">
             <div class="col-md-4">
-                <?php echo anchor(site_url('download/create'),'Create', 'class="btn btn-primary"'); ?>
+                <?php echo $retVal = ($this->session->userdata('level')=='3') ? anchor(site_url('download/create'),'Create', 'class="btn btn-primary"') : '' ; ?>
             </div>
             <div class="col-md-4 text-center">
                 <div style="margin-top: 8px" id="message">

@@ -25,7 +25,7 @@
             <?php } else { ?>
               <img src="<?php echo link_siakad().'/'.$this->session->userdata('foto') ?>" class="user-image" alt="User Image">
             <?php } ?>
-              <span class="hidden-xs"><?php echo $this->session->userdata('nama') ?></span>
+              <span class="hidden-xs"><?php echo $this->session->userdata('username') ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -33,7 +33,7 @@
                 <img src="image/user/<?php echo $this->session->userdata('foto') ?>" class="img-circle" alt="User Image">
 
                 <p>
-                  <?php echo $this->session->userdata('nama') ?>
+                  <?php echo $this->session->userdata('username') ?>
                   <small><?php echo date('Y') ?></small>
                 </p>
               </li>

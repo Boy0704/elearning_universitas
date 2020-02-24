@@ -11,7 +11,7 @@
         <?php } ?>
         </div>
         <div class="pull-left info">
-          <p><?php echo $this->session->userdata('nama'); ?></p>
+          <p><?php echo $this->session->userdata('username'); ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -43,14 +43,14 @@
          
         <li><a href="app"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
         
-        <li><a href="materi"><i class="fa fa-circle-o"></i> <span>Data Materi</span></a></li>
+        <li><a href="app/list_mk"><i class="fa fa-circle-o"></i> <span>Data Materi</span></a></li>
         <li><a href="Download"><i class="fa fa-cloud-download"></i> <span>Download</span></a></li>
       
       <?php } elseif ($this->session->userdata('level') == '4') { ?>
                
        <li><a href="app"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
         
-        <li><a href="materi"><i class="fa fa-circle-o"></i> <span>Data Materi</span></a></li>
+        <li><a href="app/list_mk"><i class="fa fa-circle-o"></i> <span>Data Materi</span></a></li>
         <li><a href="tugas"><i class="fa fa-circle-o"></i> <span>Data Tugas</span></a></li>
         <li><a href="Download"><i class="fa fa-cloud-download"></i> <span>Download</span></a></li>
 

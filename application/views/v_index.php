@@ -151,26 +151,29 @@
 <!-- AdminLTE for demo purposes -->
 <script src="assets/dist/js/demo.js"></script>
 <script src="assets/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
- <script src="https://cdn.tiny.cloud/1/4mo39ri6dgnfnyfqwhr6nhicdjgg3nckwd3ruoyr8sa3d5z7/tinymce/5/tinymce.min.js"></script>
+ <!-- <script src="https://cdn.tiny.cloud/1/4mo39ri6dgnfnyfqwhr6nhicdjgg3nckwd3ruoyr8sa3d5z7/tinymce/5/tinymce.min.js"></script> -->
         <script src="assets/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript"><?php echo $this->session->userdata('message') ?></script>
-<script src="https://cdn.tiny.cloud/1/4mo39ri6dgnfnyfqwhr6nhicdjgg3nckwd3ruoyr8sa3d5z7/tinymce/5/tinymce.min.js"></script>
+<!-- <script src="https://cdn.tiny.cloud/1/4mo39ri6dgnfnyfqwhr6nhicdjgg3nckwd3ruoyr8sa3d5z7/tinymce/5/tinymce.min.js"></script> -->
+<script type="text/javascript" src="assets/plugins/tinymce/tinymce.min.js"></script>
  <script type="text/javascript">
     tinymce.init({
         selector: ".textarea_editor",
         plugins: [
-             "advlist autolink lists link image charmap print preview hr anchor pagebreak",
-             "searchreplace wordcount visualblocks visualchars code fullscreen",
-             "insertdatetime nonbreaking save table contextmenu directionality",
-             "emoticons template paste textcolor colorpicker textpattern",
-             "media"
-        ],
-        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-        images_upload_url: '<?php echo base_url() ?>app/tinymce_upload',
-        images_upload_base_path: '<?php echo base_url() ?>',
-        images_upload_credentials: true
+             "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+             "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
+             "table contextmenu directionality emoticons paste textcolor responsivefilemanager code"
+       ],
+       toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
+       toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ",
+       image_advtab: true ,
+       
+       external_filemanager_path:"assets/filemanager/",
+       filemanager_title:"Responsive Filemanager" ,
+       external_plugins: { "filemanager" : "<?php echo base_url() ?>assets/filemanager/plugin.min.js"}
    });
+
 </script>
 <script>
   $(function () {

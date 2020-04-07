@@ -82,6 +82,18 @@ class app extends CI_Controller {
 		$this->load->view('v_index', $data);
     }
 
+    public function video_conference()
+    {
+    	$room = $this->input->get('room');
+    	$nama = $this->input->get('nama');
+    	$data = array(
+    		'room' => $room,
+    		'nama' => $nama,
+            'judul_page' => 'Video Conference',
+		);
+		$this->load->view('materi/video_conference', $data);
+    }
+
     public function list_mk()
     {
     	$data = array(

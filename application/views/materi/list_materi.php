@@ -25,6 +25,7 @@
 	      					<tr>
 	      						<td>Kode MK</td>
 	      						<td>Matakuliah</td>
+	      						<td>Dosen</td>
 	      						<td>Pilihan</td>
 	      					</tr>
 	      				</thead>
@@ -37,6 +38,7 @@
 	      					<tr>
 	      						<td><?php echo $rw->kode_makul ?></td>
 	      						<td><?php echo $rw->nama_makul ?></td>
+	      						<td><?php echo $rw->nama_dosen ?></td>
 	      						<td>
 	      							<?php 
 	      							if ($this->session->userdata('level') == '3') {

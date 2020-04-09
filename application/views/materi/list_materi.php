@@ -8,8 +8,13 @@
 	      	<div class="callout">
 	      		<?php 
 	      		if ($this->session->userdata('level') == '3') {
+	      			// $dosen = $this->session->userdata('keterangan');
+	      			// $thn = tahun_akademik_aktif();
+	      			// $query="SELECT mm.kode_makul,mm.nama_makul,jk.jadwal_id
+          //           FROM akademik_jadwal_kuliah as jk,makul_matakuliah as mm
+          //           WHERE mm.makul_id=jk.makul_id and jk.dosen_id=$dosen and jk.tahun_akademik_id=$thn";
+	      			// $sql = $this->db->query($query);
 	      			$sql = $this->db->get_where('v_krs', array('tahun_akademik_id'=>tahun_akademik_aktif(),'dosen_id'=>$this->session->userdata('keterangan')));
-	      			$sql = $this->db->query($query);
 	      		} elseif ($this->session->userdata('level') == '4') {
 
 	      			$sql = $this->db->get_where('v_krs', array('tahun_akademik_id'=>tahun_akademik_aktif(),'nim'=>$this->session->userdata('username')));
@@ -21,7 +26,7 @@
 	      					<tr>
 	      						<td>Kode MK</td>
 	      						<td>Matakuliah</td>
-	      						<td>Dosen</td>
+	      						<td>Nama Dosen</td>
 	      						<td>Pilihan</td>
 	      					</tr>
 	      				</thead>
@@ -60,6 +65,7 @@
 
 	      		 ?>
 	      	</div>
+	      </div>
 	      </div>
 	    </div>
 	    <!-- <div class="callout callout-info">

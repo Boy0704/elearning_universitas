@@ -1,5 +1,5 @@
 
-        <form action="<?php echo $action.'/'.$this->uri->segment(3).'/'.$this->uri->segment(4); ?>" method="post">
+        <form action="<?php echo $action ?>" method="post">
             <?php 
             if ($kode_mk == null or $nidn_dosen == null) {
                 $kode_mk = $this->uri->segment(4);

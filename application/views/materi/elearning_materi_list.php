@@ -20,7 +20,6 @@
             <tr>
                 <th>No</th>
 		<th>Judul Materi</th>
-		<th>Isi Materi</th>
 		<th>Kode Mk</th>
 		<th>Nidn Dosen</th>
 		<th>Action</th>
@@ -38,7 +37,6 @@
                 <tr>
 			<td width="80px"><?php echo ++$start ?></td>
 			<td><?php echo $materi->judul_materi ?></td>
-			<td><?php echo $materi->isi_materi ?></td>
 			<td><?php echo $materi->kode_mk ?></td>
 			<td><?php echo $materi->nidn_dosen ?></td>
 			<td style="text-align:center" width="200px">

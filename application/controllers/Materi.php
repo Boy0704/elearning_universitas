@@ -79,7 +79,7 @@ class Materi extends CI_Controller
         $this->load->view('v_index', $data);
     }
     
-    public function create_action() 
+    public function create_action($user,$kode_mk) 
     {
         $this->_rules();
 
@@ -95,7 +95,7 @@ class Materi extends CI_Controller
 
             $this->Materi_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('materi'));
+            redirect(site_url('materi/index/'.$user.'/'.$kode_mk));
         }
     }
     
@@ -122,7 +122,7 @@ class Materi extends CI_Controller
         }
     }
     
-    public function update_action() 
+    public function update_action($user,$kode_mk) 
     {
         $this->_rules();
 
@@ -138,7 +138,7 @@ class Materi extends CI_Controller
 
             $this->Materi_model->update($this->input->post('id_materi', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('materi'));
+            redirect(site_url('materi/index/'.$user.'/'.$kode_mk));
         }
     }
     

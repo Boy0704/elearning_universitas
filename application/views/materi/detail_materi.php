@@ -3,7 +3,7 @@ $data = $this->db->get_where('elearning_materi', array('id_materi'=>$this->uri->
  ?>
 <div class="row">
 	<div class="col-md-12">
-		<a href="app/video_conference?room=<?php echo $data->kode_mk.'-'.$data->nidn_dosen ?>&nama=<?php echo $this->session->userdata('username'); ?>" class="btn btn-success"><i class="fa fa-video-camera"></i> VIDEO CONFERENCE SEKARANG</a><br><br>
+		<a href="app/video_conference?room=<?php echo $data->kode_mk.'-'.$data->nidn_dosen ?>&nama=<?php echo $this->session->userdata('username').'-'.$this->session->userdata('nama');?>" class="btn btn-success"><i class="fa fa-video-camera"></i> VIDEO CONFERENCE SEKARANG</a><br><br>
 	</div>
 	<div class="col-md-12">
 		<div class="panel panel-info">

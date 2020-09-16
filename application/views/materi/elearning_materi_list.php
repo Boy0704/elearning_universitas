@@ -27,12 +27,10 @@
             </thead>
             <tbody>
             <?php
-            $materi_data = array();
+            $materi_data = $this->db->get('elearning_materi');
             if ($this->session->userdata('level') == '3' or $this->session->userdata('level') == '4') {
                 $materi_data = $this->db->get_where('elearning_materi', array('nidn_dosen'=>$this->uri->segment(3),'kode_mk'=>$this->uri->segment(4)));
-            } else {
-                $materi_data = $this->db->get('elearning_materi');
-            }
+            } 
             foreach ($materi_data->result() as $materi)
             {
                 ?>
@@ -44,18 +42,12 @@
 			<td style="text-align:center" width="200px">
 				<?php 
 
-                if ( $this->session->userdata('level') == '1') {
+                if ( $this->session->userdata('level') == '1' or $this->session->userdata('level') == '3') {
                    echo anchor(site_url('materi/update/'.$materi->id_materi),'<span class="label label-info">Ubah</span>'); 
                     echo ' | '; 
                     echo anchor(site_url('materi/delete/'.$materi->id_materi),'<span class="label label-danger">Hapus</span>','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
                     echo ' | '; 
                      echo anchor(site_url('app/detail_materi/'.$materi->id_materi),'<span class="label label-success">Lihat</span>'); 
-
-                } elseif ($this->session->userdata('level') == '3') {
-                     echo anchor(site_url('materi/update/'.$materi->id_materi),'<span class="label label-info">Ubah</span>'); 
-                    echo ' | '; 
-                     echo anchor(site_url('app/detail_materi/'.$materi->id_materi),'<span class="label label-success">Lihat</span>'); 
-                }
                 } else {
                     echo anchor(site_url('app/detail_materi/'.$materi->id_materi),'<span class="label label-success">Lihat</span>'); 
                 }

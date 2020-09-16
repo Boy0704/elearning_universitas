@@ -27,7 +27,7 @@
             </thead>
             <tbody>
             <?php
-            
+            $materi_data = array();
             if ($this->session->userdata('level') == '3' or $this->session->userdata('level') == '4') {
                 $materi_data = $this->db->get_where('elearning_materi', array('nidn_dosen'=>$this->uri->segment(3),'kode_mk'=>$this->uri->segment(4)));
             } else {

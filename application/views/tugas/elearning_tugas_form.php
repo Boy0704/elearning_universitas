@@ -37,6 +37,6 @@
         </div>
 	    <input type="hidden" name="id_tugas" value="<?php echo $id_tugas; ?>" /> 
 	    <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
-	    <a href="<?php echo site_url('tugas') ?>" class="btn btn-default">Cancel</a>
+	    <a onclick="window.history.back()" class="btn btn-default">Cancel</a>
 	</form>
    

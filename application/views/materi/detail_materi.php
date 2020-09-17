@@ -20,7 +20,7 @@ $data = $this->db->get_where('elearning_materi', array('id_materi'=>$this->uri->
 	    </div>
 		<?php } else { ?>
 			<div class="callout callout-info">
-		    	<a href="tugas/index/<?php echo $this->session->userdata('username').'/'.$data->kode_mk; ?>" class="btn btn-primary"> LIHAT TUGAS</a>
+		    	<a href="tugas/index/<?php echo $data->kode_mk; ?>" class="btn btn-primary"> LIHAT TUGAS</a>
 		    </div>
 		<?php } ?>
 	</div>

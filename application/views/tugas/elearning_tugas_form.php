@@ -20,7 +20,7 @@
         </div>
 	    <div class="form-group">
             <label for="varchar">Link Upload <?php echo form_error('link_upload') ?></label>
-            <input type="file" class="form-control" name="link_upload" id="link_upload" placeholder="Link Upload" value="<?php echo $link_upload; ?>" />
+            <input type="text" class="form-control" name="link_upload" id="link_upload" placeholder="Link Upload" value="<?php echo $link_upload; ?>" />
         </div>
 	    <div class="form-group">
             <label for="varchar">Kode Mk <?php echo form_error('kode_mk') ?></label>

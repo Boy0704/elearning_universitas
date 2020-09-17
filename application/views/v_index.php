@@ -174,6 +174,19 @@
        external_plugins: { "filemanager" : "<?php echo base_url() ?>assets/filemanager/plugin.min.js"}
    });
 
+
+  tinymce.init({
+        selector: ".textarea_editor_mhs",
+        plugins: [
+             "advlist autolink link image lists charmap print preview hr anchor pagebreak fullscreen",
+             "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
+             "table contextmenu directionality emoticons paste textcolor  code"
+       ],
+       toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect | fullscreen",
+       toolbar2: "|  | link unlink anchor | image media | forecolor backcolor  | print preview code ",
+       image_advtab: true ,
+   });
+
 </script>
 <script>
   $(function () {

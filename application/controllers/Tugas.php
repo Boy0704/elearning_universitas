@@ -94,7 +94,7 @@ class Tugas extends CI_Controller
 		'nim' => $this->input->post('nim',TRUE),
 		'nama' => $this->input->post('nama',TRUE),
 		'detail_tugas' => $this->input->post('detail_tugas',TRUE),
-		'link_upload' => $this->input->post('link_upload',TRUE),
+		'link_upload' => upload_gambar_biasa('tugas', 'upload/tugas/', 'pdf|zip|doc|docx|ppt|pptx', 10000, 'link_upload'),
 		'kode_mk' => $this->input->post('kode_mk',TRUE),
 	    );
 
@@ -139,7 +139,7 @@ class Tugas extends CI_Controller
 		'nim' => $this->input->post('nim',TRUE),
 		'nama' => $this->input->post('nama',TRUE),
 		'detail_tugas' => $this->input->post('detail_tugas',TRUE),
-		'link_upload' => $this->input->post('link_upload',TRUE),
+		'link_upload' => $retVal = ($_FILES['link_upload']['name'] == '') ? $_POST['tugas_old'] : upload_gambar_biasa('tugas', 'upload/tugas/', 'pdf|zip|doc|docx|ppt|pptx', 10000, 'link_upload'),
 		'kode_mk' => $this->input->post('kode_mk',TRUE),
 	    );
 
@@ -168,7 +168,7 @@ class Tugas extends CI_Controller
 	$this->form_validation->set_rules('nim', 'nim', 'trim|required');
 	$this->form_validation->set_rules('nama', 'nama', 'trim|required');
 	$this->form_validation->set_rules('detail_tugas', 'detail tugas', 'trim|required');
-	$this->form_validation->set_rules('link_upload', 'link upload', 'trim|required');
+	// $this->form_validation->set_rules('link_upload', 'link upload', 'trim|required');
 	$this->form_validation->set_rules('kode_mk', 'kode mk', 'trim|required');
 
 	$this->form_validation->set_rules('id_tugas', 'id_tugas', 'trim');

@@ -1,5 +1,5 @@
 
-        <form action="<?php echo $action; ?>" method="post">
+        <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
             <?php 
             if ($nim == null or $kode_mk == null) {
                 $nim = $this->uri->segment(3);
@@ -20,7 +20,16 @@
         </div>
 	    <div class="form-group">
             <label for="varchar">Link Upload <?php echo form_error('link_upload') ?></label>
-            <input type="text" class="form-control" name="link_upload" id="link_upload" placeholder="Link Upload" value="<?php echo $link_upload; ?>" />
+            <input type="file" class="form-control" name="link_upload" id="link_upload" placeholder="Link Upload" value="<?php echo $link_upload; ?>" />
+            <div>
+                <b>*) Extensi file diperboleh kan : pdf|zip|doc|docx|ppt|pptx 10 MB</b> <br>
+            </div>
+            <?php if ($link_upload !=''): ?>
+                <input type="hidden" name="link_upload_old" value="<?php echo $link_upload ?>">
+                <a href="upload/tugas/<?php echo $link_upload ?>"><?php echo $link_upload ?></a>
+            <?php endif ?>
+
+
         </div>
 	    <div class="form-group">
             <label for="varchar">Kode Mk <?php echo form_error('kode_mk') ?></label>

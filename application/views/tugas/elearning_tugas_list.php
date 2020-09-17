@@ -37,7 +37,8 @@
 			<td width="80px"><?php echo ++$start ?></td>
 			<td><?php echo $tugas->nim ?></td>
 			<td><?php echo $tugas->nama ?></td>
-			<td><?php echo $tugas->link_upload ?></td>
+			<td><a href="upload/tugas/<?php echo $tugas->link_upload ?>" target="_blank"><?php echo $link_upload ?></a>
+</td>
 			<td><?php echo $tugas->kode_mk ?></td>
 			<td style="text-align:center" width="200px">
 				<?php 

@@ -26,7 +26,7 @@
             </div>
             <?php if ($link_upload !=''): ?>
                 <input type="hidden" name="link_upload_old" value="<?php echo $link_upload ?>">
-                <a href="upload/tugas/<?php echo $link_upload ?>"><?php echo $link_upload ?></a>
+                <a href="upload/tugas/<?php echo $link_upload ?>" target="_blank"><?php echo $link_upload ?></a>
             <?php endif ?>
 
 

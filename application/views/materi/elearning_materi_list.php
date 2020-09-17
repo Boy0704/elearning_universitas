@@ -24,6 +24,7 @@
         <th>Nama MK</th>
 		<th>Nidn Dosen</th>
         <th>Nama Dosen</th>
+        <th>Date At</th>
 		<th>Action</th>
             </tr>
             </thead>
@@ -43,6 +44,7 @@
 			<td><?php echo get_data('makul_matakuliah','kode_makul',$materi->kode_mk,'nama_makul') ?></td>
             <td><?php echo $materi->nidn_dosen ?></td>
 			<td><?php echo get_data('app_dosen','nidn',$materi->nidn_dosen,'nama_lengkap' )?></td>
+            <td><?php echo $materi->date_at ?></td>
 			<td style="text-align:center" width="200px">
 				<?php 
 

@@ -21,7 +21,9 @@
                 <th>No</th>
 		<th>Judul Materi</th>
 		<th>Kode Mk</th>
+        <th>Nama MK</th>
 		<th>Nidn Dosen</th>
+        <th>Nama Dosen</th>
 		<th>Action</th>
             </tr>
             </thead>
@@ -37,8 +39,10 @@
                 <tr>
 			<td width="80px"><?php echo ++$start ?></td>
 			<td><?php echo $materi->judul_materi ?></td>
-			<td><?php echo $materi->kode_mk ?></td>
-			<td><?php echo $materi->nidn_dosen ?></td>
+            <td><?php echo $materi->kode_mk ?></td>
+			<td><?php echo get_data('makul_matakuliah','kode_makul',$materi->kode_mk,'nama_makul') ?></td>
+            <td><?php echo $materi->nidn_dosen ?></td>
+			<td><?php echo get_data('app_dosen','nidn',$materi->nidn_dosen,'nama_lengkap' )?></td>
 			<td style="text-align:center" width="200px">
 				<?php 
 

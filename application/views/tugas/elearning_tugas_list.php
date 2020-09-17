@@ -26,7 +26,7 @@
             </tr>
             </thead>
             <tbody><?php
-            $tugas_data = $this->db->get('elearning_tugas', array('nim'=>$this->session->userdata('username')));
+            $tugas_data = $this->db->get_where('elearning_tugas', array('nim'=>$this->session->userdata('username')));
             foreach ($tugas_data->result() as $tugas)
             {
                 ?>

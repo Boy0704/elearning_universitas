@@ -16,7 +16,7 @@
         </div>
 	    <div class="form-group">
             <label for="detail_tugas">Detail Tugas <?php echo form_error('detail_tugas') ?></label>
-            <textarea class="form-control textarea_editor" rows="3" name="detail_tugas" id="detail_tugas" placeholder="Detail Tugas"><?php echo $detail_tugas; ?></textarea>
+            <textarea class="form-control textarea_editor_mhs" rows="3" name="detail_tugas" id="detail_tugas" placeholder="Detail Tugas"><?php echo $detail_tugas; ?></textarea>
         </div>
 	    <div class="form-group">
             <label for="varchar">Link Upload <?php echo form_error('link_upload') ?></label>

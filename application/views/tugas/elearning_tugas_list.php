@@ -39,9 +39,16 @@
 			<td><?php echo $tugas->kode_mk ?></td>
 			<td style="text-align:center" width="200px">
 				<?php 
-				echo anchor(site_url('tugas/update/'.$tugas->id_tugas),'<span class="label label-info">Ubah</span>'); 
-				echo ' | '; 
-				echo anchor(site_url('tugas/delete/'.$tugas->id_tugas),'<span class="label label-danger">Hapus</span>','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+
+                if ($this->session->userdata('level') == '1') {
+                    echo anchor(site_url('tugas/update/'.$tugas->id_tugas),'<span class="label label-info">Ubah</span>'); 
+                    echo ' | '; 
+                    echo anchor(site_url('tugas/delete/'.$tugas->id_tugas),'<span class="label label-danger">Hapus</span>','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+                } else {
+                    echo anchor(site_url('tugas/update/'.$tugas->id_tugas),'<span class="label label-info">Ubah</span>'); 
+                }
+
+				
 				?>
 			</td>
 		</tr>

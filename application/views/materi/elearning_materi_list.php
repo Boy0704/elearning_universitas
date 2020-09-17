@@ -48,12 +48,16 @@
 			<td style="text-align:center" width="200px">
 				<?php 
 
-                if ( $this->session->userdata('level') == '1' or $this->session->userdata('level') == '3') {
+                if ( $this->session->userdata('level') == '1') {
                    echo anchor(site_url('materi/update/'.$materi->id_materi),'<span class="label label-info">Ubah</span>'); 
                     echo ' | '; 
                     echo anchor(site_url('materi/delete/'.$materi->id_materi),'<span class="label label-danger">Hapus</span>','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
                     echo ' | '; 
                      echo anchor(site_url('app/detail_materi/'.$materi->id_materi),'<span class="label label-success">Lihat</span>'); 
+                } elseif ($this->session->userdata('level') == '3') {
+                    echo anchor(site_url('materi/update/'.$materi->id_materi),'<span class="label label-info">Ubah</span>'); 
+                    echo ' | '; 
+                    echo anchor(site_url('app/detail_materi/'.$materi->id_materi),'<span class="label label-success">Lihat</span>'); 
                 } else {
                     echo anchor(site_url('app/detail_materi/'.$materi->id_materi),'<span class="label label-success">Lihat</span>'); 
                 }

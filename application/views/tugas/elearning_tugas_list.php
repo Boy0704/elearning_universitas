@@ -37,17 +37,20 @@
 			<td width="80px"><?php echo ++$start ?></td>
 			<td><?php echo $tugas->nim ?></td>
 			<td><?php echo $tugas->nama ?></td>
-			<td><?php echo $tugas->detail_tugas ?></td>
 			<td><?php echo $tugas->link_upload ?></td>
 			<td><?php echo $tugas->kode_mk ?></td>
 			<td style="text-align:center" width="200px">
 				<?php 
 
                 if ($this->session->userdata('level') == '1') {
+                     echo anchor(site_url('tugas/read/'.$tugas->id_tugas),'<span class="label label-primary">Lihat</span>'); 
+                    echo ' | '; 
                     echo anchor(site_url('tugas/update/'.$tugas->id_tugas),'<span class="label label-info">Ubah</span>'); 
                     echo ' | '; 
                     echo anchor(site_url('tugas/delete/'.$tugas->id_tugas),'<span class="label label-danger">Hapus</span>','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
                 } else {
+                    echo anchor(site_url('tugas/read/'.$tugas->id_tugas),'<span class="label label-primary">Lihat</span>'); 
+                    echo ' | '; 
                     echo anchor(site_url('tugas/update/'.$tugas->id_tugas),'<span class="label label-info">Ubah</span>'); 
                 }
 

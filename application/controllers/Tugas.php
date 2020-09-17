@@ -56,8 +56,10 @@ class Tugas extends CI_Controller
 		'detail_tugas' => $row->detail_tugas,
 		'link_upload' => $row->link_upload,
 		'kode_mk' => $row->kode_mk,
+        'judul_page' => 'tugas/elearning_tugas_read',
+            'konten' => 'tugas/elearning_tugas_read',
 	    );
-            $this->load->view('tugas/elearning_tugas_read', $data);
+            $this->load->view('v_index', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('tugas'));

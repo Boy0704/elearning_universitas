@@ -3,9 +3,10 @@
             <?php 
             if ($kode_mk == null or $nidn_dosen == null) {
                 $kode_mk = $this->uri->segment(4);
-                $makul_id = $this->uri->segment(5);
                 $nidn_dosen = $this->uri->segment(3);
+               
             }
+            $makul_id = $this->uri->segment(5);
              ?>
             <div class="form-group">
                 <label for="varchar">Kode Mk <?php echo form_error('kode_mk') ?></label>

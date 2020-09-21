@@ -58,7 +58,7 @@
                     echo ' | '; 
                      echo anchor(site_url('app/detail_materi/'.$materi->id_materi),'<span class="label label-success">Lihat</span>'); 
                 } elseif ($this->session->userdata('level') == '3') {
-                    echo anchor(site_url('materi/update/'.$materi->id_materi),'<span class="label label-info">Ubah</span>'); 
+                    echo anchor(site_url('materi/update/'.$materi->id_materi.'/n/'.$this->uri->segment(5)),'<span class="label label-info">Ubah</span>'); 
                     echo ' | '; 
                     echo anchor(site_url('app/detail_materi/'.$materi->id_materi),'<span class="label label-success">Lihat</span>'); 
                 } else {

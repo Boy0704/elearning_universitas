@@ -58,6 +58,7 @@
 	      						$hari = get_data('app_hari','hari_id',$d->hari_id,'hari');
 
 	      						$dosen_id = get_data('akademik_jadwal_kuliah','jadwal_id',$rw->jadwal_id,'dosen_id');
+	      						$makul_id = get_data('akademik_jadwal_kuliah','jadwal_id',$rw->jadwal_id,'makul_id');
 	      						$nidn = get_data('app_dosen','dosen_id',$dosen_id,'nidn');
 	      					 ?>
 	      					<tr>
@@ -70,11 +71,11 @@
 	      							<?php 
 	      							if ($this->session->userdata('level') == '3') {
 	      								?>
-	      								<a href="materi/index/<?php echo $nidn.'/'.$rw->kode_makul ?>" class="label label-info"> Lihat Materi</a>
+	      								<a href="materi/index/<?php echo $nidn.'/'.$rw->kode_makul ?>/<?php echo $makul_id ?>" class="label label-info"> Lihat Materi</a>
 	      								<?php
 	      							} else {
 	      							 ?>
-	      							 <a href="materi/index/<?php echo $nidn.'/'.$rw->kode_makul ?>" class="label label-info"> Lihat Materi</a>
+	      							 <a href="materi/index/<?php echo $nidn.'/'.$rw->kode_makul ?>/<?php echo $makul_id ?>" class="label label-info"> Lihat Materi</a>
 	      							 <?php
 	      							}
 	      							?>

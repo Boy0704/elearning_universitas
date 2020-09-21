@@ -2,7 +2,7 @@
         <div class="row" style="margin-bottom: 10px">
             <div class="col-md-4">
                 <?php 
-                echo $retVal = ($this->session->userdata('level') == '3') ? anchor(site_url('materi/create/'.$this->uri->segment(3).'/'.$this->uri->segment(4)),'Create', 'class="btn btn-primary"') : '' ;  ?>
+                echo $retVal = ($this->session->userdata('level') == '3') ? anchor(site_url('materi/create/'.$this->uri->segment(3).'/'.$this->uri->segment(4).'/'.$this->uri->segment(5)),'Create', 'class="btn btn-primary"') : '' ;  ?>
                 <?php if ($this->session->userdata('level') == '1'): ?>
                     <a href="app/export_materi" class="btn btn-primary" target="_blank">Export</a>
                 <?php endif ?>

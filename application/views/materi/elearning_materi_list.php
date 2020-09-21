@@ -52,7 +52,7 @@
 				<?php 
 
                 if ( $this->session->userdata('level') == '1') {
-                   echo anchor(site_url('materi/update/'.$materi->id_materi),'<span class="label label-info">Ubah</span>'); 
+                   echo anchor(site_url('materi/update/'.$materi->id_materi.'/n/'.$this->uri->segment(5)),'<span class="label label-info">Ubah</span>'); 
                     echo ' | '; 
                     echo anchor(site_url('materi/delete/'.$materi->id_materi),'<span class="label label-danger">Hapus</span>','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
                     echo ' | '; 

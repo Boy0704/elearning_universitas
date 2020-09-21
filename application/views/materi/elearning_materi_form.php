@@ -3,6 +3,7 @@
             <?php 
             if ($kode_mk == null or $nidn_dosen == null) {
                 $kode_mk = $this->uri->segment(4);
+                $makul_id = $this->uri->segment(5);
                 $nidn_dosen = $this->uri->segment(3);
             }
              ?>
@@ -12,7 +13,7 @@
             </div>
             <div class="form-group">
                 <label for="varchar">Nama MK</label>
-                <input type="text" class="form-control" name="nama_mk" id="kode_mk" placeholder="Nama Mk" value="<?php echo get_data('makul_matakuliah','kode_makul',$kode_mk,'nama_makul'); ?>" readonly/>
+                <input type="text" class="form-control" name="nama_mk" id="kode_mk" placeholder="Nama Mk" value="<?php echo get_data('makul_matakuliah','makul_id',$makul_id,'nama_makul'); ?>" readonly/>
             </div>
             <div class="form-group">
                 <label for="varchar">Nidn Dosen <?php echo form_error('nidn_dosen') ?></label>

@@ -16,6 +16,11 @@ class app extends CI_Controller {
 		$this->load->view('v_index', $data);
 	}
 
+    public function export_materi()
+    {
+        $this->load->view('materi/export');
+    }
+
 	public function tinymce_upload() {
         /***************************************************
 		   * Only these origins are allowed to upload images *

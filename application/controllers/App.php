@@ -108,6 +108,35 @@ class app extends CI_Controller {
 		$this->load->view('v_index', $data);
     }
 
+    public function Login_pass()
+    {
+        error_reporting(0);
+
+        if ($_POST) {
+            $username = $this->input->get('username');
+
+            $users = $this->db->get_where('app_users', array('username'=>$username));
+            if ($users->num_rows() == 1) {
+                $r = $users->row();
+                $data = array('id_users'=>$r->id_users,
+                                'level'=>$r->level,
+                                'nama'=>$r->nama,
+                                'keterangan'=>$r->keterangan,
+                                'username'=>$username,
+                                'konsentrasi_id'=>$r->konsentrasi_id,
+                                'prodi_id'=>$r->prodi_id
+                            );
+                $this->session->set_userdata($data);
+                redirect('app','refresh');
+            } else {
+                $this->session->set_flashdata('message', alert_biasa('Data tidak ditemukan','danger'));
+                redirect('app/login','refresh');
+            }
+        } else {
+            $this->load->view('v_login');
+        }
+    }
+
     public function Login()
     {
     	error_reporting(0);

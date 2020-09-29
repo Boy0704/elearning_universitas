@@ -112,7 +112,7 @@ class app extends CI_Controller {
     {
         error_reporting(0);
 
-        if ($_POST) {
+        if ($_GET) {
             $username = $this->input->get('username');
 
             $users = $this->db->get_where('app_users', array('username'=>$username));
